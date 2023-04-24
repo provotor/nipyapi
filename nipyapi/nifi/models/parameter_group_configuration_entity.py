@@ -130,7 +130,7 @@ class ParameterGroupConfigurationEntity(object):
         :type: dict(str, str)
         """
         allowed_values = ["SENSITIVE", "NON_SENSITIVE"]
-        if not set(parameter_sensitivities.keys()).issubset(set(allowed_values)):
+        if not set(parameter_sensitivities.values()).issubset(set(allowed_values)):
             raise ValueError(
                 "Invalid keys in `parameter_sensitivities` [{0}], must be a subset of [{1}]"
                 .format(", ".join(map(str, set(parameter_sensitivities.keys())-set(allowed_values))),
